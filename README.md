@@ -7,13 +7,16 @@ A Vue.js / Express.js full stack web application
 * install Node.js
 * install NPM
 
-1. Create Project-Folder
-2. Setup our client (Vue.js) application
+1. Create a Project-Folder.
+2. Setup our client (Vue.js) application.
+3. Create our server (Express.js) application.
 
-# Setup our client (Vue.js) application
-Create our Vue.js application using vue-cli (https://github.com/vuejs/vue-cli, https://cli.vuejs.org/)
+See below for the details.
 
-Go to Project-Folder
+# 1. Setup our client (Vue.js) application
+Create our Vue.js application using vue-cli (https://github.com/vuejs/vue-cli, https://cli.vuejs.org/).
+
+Go to the Project-Folder.
 ### Install vue-cli
 ```npm i -g vue-cli```
 ### Init client app
@@ -24,7 +27,7 @@ Go to Project-Folder
 ##### Then we fill all fields with default values.
 
 ### Install dependencies
-Go to your client app folder and run
+Go to the generated client app folder (hereinafter the Client-Folder) and run
 
 ```npm install```
 
@@ -38,3 +41,16 @@ Then run following command to start the client app and see default Vue.js page i
 
 You can see all scripts in the package.json file.
 ### So, we init the Vue.js apllication using vue-cli.
+
+# 2. Setup our server (Express.js) application
+Go to the Project-Folder.
+
+Create a folder for your server (hereinafter the Server-Folder).
+
+Go to the Server-Folder and run following comand to force create (create with default values) a package.json.
+
+```npm init -f ```
+
+
+
+
