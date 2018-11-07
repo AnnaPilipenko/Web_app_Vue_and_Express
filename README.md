@@ -47,10 +47,50 @@ Go to the Project-Folder.
 
 Create a folder for your server (hereinafter the Server-Folder).
 
+### Init server app
 Go to the Server-Folder and run following comand to force create (create with default values) a package.json.
 
 ```npm init -f ```
 
+### Install nodemon
+__Nodemon__ is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected.
 
+To install nodemon run
 
+```npm install nodemon --save-dev```
 
+### Install eslint
+__ESLint__ is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
+
+To install eslint run
+
+```npm install eslint --save-dev```
+
+Add following script to the package.json
+
+```"eslint-init": "./node_modules/.bin/eslint --init"```
+
+And run
+
+```npm run eslint-init```
+
+### Add new scripts to the package.json file
+Add following scripts to the package.json file in the Server-Folder.
+
+```"start": "nodemon src/app.js --exec  \"npm run lint && node\"",```
+
+```"lint": "eslint **/*.js"```
+
+### Create app.js
+Create src folder in the Server-Folder.
+
+Go to the src and create app.js file (Project-Folder/Server-Folder/src/app.js).
+
+Write following code in the app.js file.
+>console.log('Hello')
+
+And do a test run
+
+```npm start```
+
+### So, we init the server apllication.
