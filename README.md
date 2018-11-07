@@ -10,4 +10,13 @@ A Vue.js / Express.js full stack web application
 1. Create Project-Folder
 2. Setup our client (Vue.js) application
 
-## Setup our client (Vue.js) application
+# Setup our client (Vue.js) application
+Create our Vue.js application using vue-cli (https://github.com/vuejs/vue-cli, https://cli.vuejs.org/)
+
+Go to Project-Folder
+### Install vue-cli
+```npm i -g vue-cli```
+### Init client app
+```vue init <template> <proj-name>```
+### Example
+```vue init webpack client```
