@@ -20,3 +20,21 @@ Go to Project-Folder
 ```vue init <template> <proj-name>```
 ### Example
 ```vue init webpack client```
+
+##### Then we fill all fields with default values.
+
+### Install dependencies
+Go to your client app folder and run
+
+```npm install```
+
+This command will install all dependencies written in the generated package.json file to the node_modules folder.
+
+##### Make sure the folder node_moldules is listed in your gitignore file or download a gitignore file for Node.js projects.
+
+Then run following command to start the client app and see default Vue.js page in web browser (by default on http://localhost:8080).
+
+``` npm run dev```
+
+You can see all scripts in the package.json file.
+### So, we init the Vue.js apllication using vue-cli.
