@@ -42,7 +42,7 @@ Then run following command to start the client app and see default Vue.js page i
 You can see all scripts in the package.json file.
 ### So, we init the Vue.js apllication using vue-cli.
 
-# 2. Setup our server (Express.js) application
+# 2. Setup our server application
 Go to the Project-Folder.
 
 Create a folder for your server (hereinafter the Server-Folder).
@@ -74,6 +74,25 @@ And run
 
 ```npm run eslint-init```
 
+Setup Eslint Example
+``` 
+Use a popular style guide
+Standard
+JavaScript
+```
+
+And update the .eslintrc.js file to to always require semicolons (require ';' at the end of statements) and allow 4 spaces for indent.
+
+```js
+module.exports = {
+    "extends": "standard",
+    "rules": {
+        "semi": [2, "always"],
+        "indent": ["error", 4]
+    }
+};
+```
+
 ### Add new scripts to the package.json file
 Add following scripts to the package.json file in the Server-Folder.
 
@@ -96,4 +115,24 @@ And do a test run
 
 ```npm start```
 
-### So, we init the server apllication.
+### So, we setup the server apllication.
+
+# 3. Init our Express server application
+Go to the Server-Folder
+
+### Install Express.js
+
+__Express.js__  is a web application framework for Node.js designed for building web applications and APIs.
+
+```npm install -save express ```
+
+### Install other dependencies
+__Body-parser__ parses incoming request bodies in a middleware before your handlers, available under the req.body property.
+
+__Cors__ - cross-origin resource sharing (CORS) allows AJAX requests to skip the Same-origin policy and access resources from remote hosts.
+
+__Morgan__ - HTTP request logger middleware for node.js
+
+```npm install -save body-parser cors morgan```
+
+
