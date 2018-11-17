@@ -87,7 +87,7 @@ Create src folder in the Server-Folder.
 Go to the src and create app.js file (Project-Folder/Server-Folder/src/app.js).
 
 Write following code in the app.js file.
-```
+```js
 // eslint-disable-next-line no-console
 console.log('Hello');
 ```
