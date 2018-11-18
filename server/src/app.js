@@ -4,9 +4,9 @@ const cors = require('cors');
 const morgan = require('morgan');
 
 const app = express();
+app.use(cors());
 app.use(morgan('combine'));
 app.use(bodyParser.json());
-app.use(cors());
 
 // '/ping?param={p}'
 app.get('/ping', (req, res) => {
