@@ -135,4 +135,31 @@ __Morgan__ - HTTP request logger middleware for node.js
 
 ```npm install -save body-parser cors morgan```
 
+### Getting started with Express
+Write following code into the app.js file
+
+```js
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const morgan = require('morgan');
+
+const app = express();
+app.use(morgan('combine'));
+app.use(bodyParser.json());
+app.use(cors());
+
+app.get('/ping', (req, res) => {
+    res.send('hello');
+});
+
+app.listen(process.env.PORT || 8081);
+
+```
+
+Run
+
+```npm start```
+
+And check the http://localhost:8081/ping
 
