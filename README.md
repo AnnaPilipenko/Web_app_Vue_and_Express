@@ -147,9 +147,10 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 
 const app = express();
+app.use(cors()); // The CORS specification requires an OPTIONS call to precede POST or GET.
 app.use(morgan('combine'));
 app.use(bodyParser.json());
-app.use(cors());
+
 
 // '/ping?param={p}'
 app.get('/ping', (req, res) => {
@@ -159,6 +160,8 @@ app.get('/ping', (req, res) => {
 app.listen(process.env.PORT || 8081);
 
 ```
+
+The CORS specification requires an OPTIONS call to precede POST or GET.
 
 Run
 
