@@ -7,7 +7,7 @@ A Vue.js / Express.js full stack web application
 * install Node.js
 * install NPM
 
-1. Create a Project-Folder.
+1. Create a __Project-Folder__.
 2. Setup our client (Vue.js) application.
 3. Create our server (Express.js) application.
 
@@ -16,7 +16,7 @@ See below for the details.
 # 1. Setup our client (Vue.js) application
 Create our Vue.js application using vue-cli (https://github.com/vuejs/vue-cli, https://cli.vuejs.org/).
 
-Go to the Project-Folder.
+Go to the __Project-Folder__.
 ### Install vue-cli
 ```npm i -g vue-cli```
 ### Init client app
@@ -27,7 +27,7 @@ Go to the Project-Folder.
 ##### Then we fill all fields with default values.
 
 ### Install dependencies
-Go to the generated client app folder (hereinafter the Client-Folder) and run
+Go to the generated client app folder (hereinafter the __Client-Folder__) and run
 
 ```npm install```
 
@@ -43,12 +43,12 @@ You can see all scripts in the package.json file.
 ### So, we init the Vue.js apllication using vue-cli.
 
 # 2. Setup our server application
-Go to the Project-Folder.
+Go to the __Project-Folder__.
 
-Create a folder for your server (hereinafter the Server-Folder).
+Create a folder for your server (hereinafter the __Server-Folder__).
 
 ### Init server app
-Go to the Server-Folder and run following comand to force create (create with default values) a package.json.
+Go to the __Server-Folder__ and run following comand to force create (create with default values) a __package.json__.
 
 ```npm init -f ```
 
@@ -66,7 +66,7 @@ To install eslint run
 
 ```npm install eslint --save-dev```
 
-Add following script to the package.json
+Add following script to the __package.json__
 
 ```"eslint-init": "./node_modules/.bin/eslint --init"```
 
@@ -81,7 +81,8 @@ Standard
 JavaScript
 ```
 
-And update the .eslintrc.js file to to always require semicolons (require ';' at the end of statements) and allow 4 spaces for indent.
+And update the __.eslintrc.js__ file to to always require semicolons (require ';' at the end of statements) and allow 4 spaces for indent.
+We add two rules ("semi" and "indent") to __.eslintrc.js__ in __server and client__ projects.
 
 ```js
 module.exports = {
@@ -94,18 +95,18 @@ module.exports = {
 ```
 
 ### Add new scripts to the package.json file
-Add following scripts to the package.json file in the Server-Folder.
+Add following scripts to the __package.json__ file in the __Server-Folder__.
 
 ```"start": "nodemon src/app.js --exec  \"npm run lint && node\"",```
 
 ```"lint": "eslint **/*.js"```
 
 ### Create app.js
-Create src folder in the Server-Folder.
+Create src folder in the __Server-Folder__.
 
-Go to the src and create app.js file (Project-Folder/Server-Folder/src/app.js).
+Go to the __src__ and create __app.js__ file (Project-Folder/Server-Folder/src/app.js).
 
-Write following code in the app.js file.
+Write following code in the __app.js__ file.
 ```js
 // eslint-disable-next-line no-console
 console.log('Hello');
@@ -118,7 +119,7 @@ And do a test run
 ### So, we setup the server apllication.
 
 # 3. Init our Express server application
-Go to the Server-Folder
+Go to the __Server-Folder__
 
 ### Install Express.js
 
@@ -136,7 +137,7 @@ __Morgan__ - HTTP request logger middleware for node.js
 ```npm install -save body-parser cors morgan```
 
 ### Getting started with Express
-Write following code into the app.js file
+Write following code into the __app.js__ file
 
 ```js
 const express = require('express');
@@ -163,3 +164,26 @@ Run
 
 And check the http://localhost:8081/ping
 
+# 4. Connect the client application to the server
+Go to the __Client-Folder__.
+
+### Install axios
+__Axios__ is promise based HTTP client for the browser and node.js.
+
+We add it to make HTTP requests to the server
+
+```npm install --save axios ```
+
+Create __services__ folder in __Client-Folder/src__ folder. 
+
+In this folder create __Api.js__ file with following code
+
+```js
+import axios from 'axios';
+
+export default () => {
+    return axios.create({
+        baseURL: 'hhtp://localhost:8081/'
+    });
+};
+```
