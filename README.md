@@ -150,8 +150,9 @@ app.use(morgan('combine'));
 app.use(bodyParser.json());
 app.use(cors());
 
+// '/ping?param={p}'
 app.get('/ping', (req, res) => {
-    res.send('hello');
+    res.send(req.query.param ? req.query.param : 'hello');
 });
 
 app.listen(process.env.PORT || 8081);
@@ -186,4 +187,20 @@ export default () => {
         baseURL: 'hhtp://localhost:8081/'
     });
 };
+```
+
+In the same folder create __TestService.js__ file with following code
+
+```js
+import Api from '@/services/Api';
+
+export default {
+    ping (param) {
+        return Api().get('ping', param);
+    }
+};
+
+// Usage
+// TestService.ping("ping");
+
 ```
