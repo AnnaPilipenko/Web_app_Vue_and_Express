@@ -161,7 +161,7 @@ app.listen(process.env.PORT || 8081);
 
 ```
 
-The CORS specification requires an OPTIONS call to precede POST or GET.
+__The CORS specification requires an OPTIONS call to precede POST or GET. Use it before body-parser and pefore requests.__
 
 Run
 
