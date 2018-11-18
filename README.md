@@ -141,8 +141,8 @@ Write following code into the __app.js__ file
 
 ```js
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 const morgan = require('morgan');
 
 const app = express();
@@ -184,7 +184,7 @@ import axios from 'axios';
 
 export default () => {
     return axios.create({
-        baseURL: 'hhtp://localhost:8081/'
+        baseURL: 'http://localhost:8081/'
     });
 };
 ```
@@ -202,5 +202,149 @@ export default {
 
 // Usage
 // TestService.ping("ping");
+
+```
+
+### Router and components
+
+Create new Test Pgae. Go to the __Client-Folder/src/components__ and create __Test.vue__
+
+```html
+<template>
+     <div>
+         <h1>Test Page</h1>
+     </div>
+</template>
+
+<script>
+export default {
+    data () {
+        return {
+        };
+    }
+};
+</script>
+
+<style scoped>
+</style>
+
+```
+
+Go to the __Client-Folder/src/router/index.js__ and add new route.
+
+```js
+import Vue from 'vue';
+import Router from 'vue-router';
+import HelloWorld from '@/components/HelloWorld';
+import Test from '@/components/Test'; // import components from Test.vue
+
+Vue.use(Router);
+
+export default new Router({
+    routes: [
+        {
+            path: '/',
+            name: 'HelloWorld',
+            component: HelloWorld
+        },
+        { // add new route with new component
+            path: '/test',
+            name: 'test',
+            component: Test
+        }
+    ]
+});
+
+```
+
+Check this by http://localhost:8080/#/test
+
+### Use Service and bind vue elements
+
+Uddate __Test.vue__ file
+```html
+<template>
+     <div>
+         <h1>Test Page</h1>
+
+         <input
+            type="text"
+            name="param"
+            placeholder="ping parameter"
+            v-model="param"
+         />
+         <button
+            @click="ping">
+         Ping server
+         </button>
+        <h2 v-text="response">Server response</h2>
+     </div>
+</template>
+
+<script>
+import TestService from '@/services/TestService'; // import Test Service
+export default {
+    data () {
+        return {
+            param: 'hello',
+            response: 'Server response'
+        };
+    },
+    watch: {
+        param (value) {
+            console.log('param has changed:', value);
+        }
+    },
+    methods: {
+        async ping () {
+            console.log('ping button was clicked', this.param);
+            const response = await TestService.ping(this.param); // ping request on the server
+            console.log('response data', response);
+            this.response = response.data;
+        }
+    }
+};
+</script>
+
+<style scoped>
+</style>
+```
+
+Check this by http://localhost:8080/#/test
+
+# How to remove hashbang from url? (Vue.js)
+Set router mode to 'history'
+
+```js
+const router = new VueRouter({
+  mode: 'history'
+});
+```
+
+Example (our __Client-Folder/src/router/index.js__)
+
+```js
+import Vue from 'vue';
+import Router from 'vue-router';
+import HelloWorld from '@/components/HelloWorld';
+import Test from '@/components/Test';
+
+Vue.use(Router);
+
+export default new Router({
+    mode: 'history', // Set router mode to 'history' to remove '#' from url
+    routes: [
+        {
+            path: '/',
+            name: 'HelloWorld',
+            component: HelloWorld
+        },
+        {
+            path: '/test',
+            name: 'test',
+            component: Test
+        }
+    ]
+});
 
 ```
