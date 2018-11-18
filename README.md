@@ -393,3 +393,36 @@ resolve: {
 ```js
 import scss from './assets/scss/main'
 ```
+
+# Getting started with buefy
+__Buefy__ is a lightweight library of responsive UI components for Vue.js based on Bulma framework and design.
+(https://buefy.github.io/documentation/start/)
+
+### Install buefy
+
+```npm install buefy```
+
+### Full Bundle
+
+```js
+import Vue from 'vue'
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css'
+
+Vue.use(Buefy)
+```
+
+### Individual components
+
+If you only need a couple of Buefy's components, might be a good idea to include individuals.
+
+```js
+import Vue from 'vue'
+import { Table } from 'buefy/dist/components/table'
+import { Input } from 'buefy/dist/components/input'
+import 'buefy/dist/buefy.css'
+
+Vue.component('b-table', Table)
+Vue.component('b-input', Input)
+```
+
