@@ -352,3 +352,44 @@ export default new Router({
 });
 
 ```
+
+# Using SASS/SCSS in Vue.js application
+
+Create __scss__ folder in __src/assets/__.
+
+### Install packages
+
+```npm install sass-loader node-sass style-loader --save-dev```
+
+Add following code to the __build/webpack.base.conf.js__ file
+
+```js
+resolve: {
+ extensions: ['.js', '.vue', '.json', '.scss'],
+ alias: {
+   'vue$': 'vue/dist/vue.esm.js',
+   '@': resolve('src'),
+   styles: resolve('src/assets/scss')
+ }
+}
+```
+
+### You can use scss in your project
+```html
+<style lang="scss" scoped>
+ 
+</style>
+```
+
+### Import exsisting .scss file
+```html
+<style lang="scss" scoped>
+ @import '../assets/scss/main';
+</style>
+```
+
+### Or in .js file
+
+```js
+import scss from './assets/scss/main'
+```
