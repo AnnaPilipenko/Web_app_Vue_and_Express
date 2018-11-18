@@ -8,8 +8,9 @@ app.use(morgan('combine'));
 app.use(bodyParser.json());
 app.use(cors());
 
+// '/ping?param={p}'
 app.get('/ping', (req, res) => {
-    res.send('hello');
+    res.send(req.query.param ? req.query.param : 'hello');
 });
 
 app.listen(process.env.PORT || 8081);
