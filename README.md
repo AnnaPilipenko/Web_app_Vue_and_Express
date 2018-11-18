@@ -147,7 +147,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 
 const app = express();
-app.use(cors()); // Use it before body-parser and pefore requests.
+app.use(cors()); // Use it before body-parser and before requests.
 app.use(morgan('combine'));
 app.use(bodyParser.json());
 
