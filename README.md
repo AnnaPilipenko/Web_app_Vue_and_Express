@@ -204,3 +204,57 @@ export default {
 // TestService.ping("ping");
 
 ```
+
+### Router and components
+
+Create new Test Pgae. Go to the __Client-Folder/src/components__ and create __Test.vue__
+
+```html
+<template>
+     <div>
+         <h1>Test Page</h1>
+     </div>
+</template>
+
+<script>
+export default {
+    data () {
+        return {
+        };
+    }
+};
+</script>
+
+<style scoped>
+</style>
+
+```
+
+Go to the __Client-Folder/src/router/index.js__ and add new route.
+
+```js
+import Vue from 'vue';
+import Router from 'vue-router';
+import HelloWorld from '@/components/HelloWorld';
+import Test from '@/components/Test'; // import components from Test.vue
+
+Vue.use(Router);
+
+export default new Router({
+    routes: [
+        {
+            path: '/',
+            name: 'HelloWorld',
+            component: HelloWorld
+        },
+        { // add new route with new component
+            path: '/test',
+            name: 'test',
+            component: Test
+        }
+    ]
+});
+
+```
+
+Check this by http://localhost:8080/#/test
