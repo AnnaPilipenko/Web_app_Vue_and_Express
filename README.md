@@ -147,7 +147,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 
 const app = express();
-app.use(cors()); // The CORS specification requires an OPTIONS call to precede POST or GET.
+app.use(cors()); // Use it before body-parser and pefore requests.
 app.use(morgan('combine'));
 app.use(bodyParser.json());
 
@@ -161,7 +161,7 @@ app.listen(process.env.PORT || 8081);
 
 ```
 
-__The CORS specification requires an OPTIONS call to precede POST or GET. Use it before body-parser and pefore requests.__
+__CORS requires a call before POST or GET. Use it before body-parser and before requests.__
 
 Run
 
