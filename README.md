@@ -10,6 +10,7 @@ A Vue.js / Express.js full stack web application
 1. Create a __Project-Folder__.
 2. Setup our client (Vue.js) application.
 3. Create our server (Express.js) application.
+4. Connect the client application to the server
 
 See below for the details.
 
