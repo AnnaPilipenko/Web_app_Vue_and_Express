@@ -384,7 +384,7 @@ resolve: {
 ### Import exsisting .scss file
 ```html
 <style lang="scss" scoped>
- @import '../assets/scss/main';
+ @import 'assets/scss/main';
 </style>
 ```
 
@@ -425,4 +425,55 @@ import 'buefy/dist/buefy.css'
 Vue.component('b-table', Table)
 Vue.component('b-input', Input)
 ```
+
+# Using Font Awesome with Vue.js 
+
+Install font-awesome
+
+```npm i --save @fortawesome/fontawesome-free```
+
+Import css styles (for example in __main.js__)
+
+```js
+import '@fortawesome/fontawesome-free/css/solid.css';
+import '@fortawesome/fontawesome-free/css/fontawesome.css';
+```
+
+### Using font-awesome with buefy
+
+1. Install font-awesome - see above.
+2. Import css styles (for example in __main.js__) - see above.
+3. Update Vue.use:
+
+```js
+Vue.use(Buefy, { defaultIconPack: 'fas' });
+```
+So, You can use ```<b-icon />```
+
+### Example of the __main.js__ file
+
+```js
+import Vue from 'vue';
+import App from './App';
+import router from './router';
+
+import Buefy from 'buefy';
+import 'buefy/dist/buefy.css';
+import '@fortawesome/fontawesome-free/css/solid.css';
+import '@fortawesome/fontawesome-free/css/fontawesome.css';
+
+Vue.use(Buefy, { defaultIconPack: 'fas' });
+
+Vue.config.productionTip = false;
+
+/* eslint-disable no-new */
+new Vue({
+    el: '#app',
+    router,
+    components: { App },
+    template: '<App/>'
+});
+
+```
+
 
